@@ -1,0 +1,5 @@
+C:\Users\ALEX\OneDrive\Documentos\PantallaLCD\PantallaLCD\bin\Debug\PantallaLCD.exe.config
+C:\Users\ALEX\OneDrive\Documentos\PantallaLCD\PantallaLCD\bin\Debug\PantallaLCD.exe
+C:\Users\ALEX\OneDrive\Documentos\PantallaLCD\PantallaLCD\bin\Debug\PantallaLCD.pdb
+C:\Users\ALEX\OneDrive\Documentos\PantallaLCD\PantallaLCD\obj\Debug\PantallaLCD.exe
+C:\Users\ALEX\OneDrive\Documentos\PantallaLCD\PantallaLCD\obj\Debug\PantallaLCD.pdb
