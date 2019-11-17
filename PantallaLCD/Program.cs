@@ -31,7 +31,7 @@ namespace PantallaLCD
         }
         
         
-      
+      /* Marca 5*/
 
         static bool analizoSiEsNumero(string q) // metodo que al ingresar un caracter verifica si es numero o no.
         {
@@ -67,25 +67,25 @@ namespace PantallaLCD
             int digitoUno;  // Definición de variable numérica entera llamada "digitoUno" .
             bool zoom = false; // Definición de variable booleana  llamada "zoom" inicializada con valor en falso.
 
-            for (i = 0; i < y; i++)              //hallo la posición de la coma
+            for (i = 0; i < y; i++)   // Ciclo Para, donde se va a hallar la posición de la coma.
             {
-                if (koma == z.Substring(i, 1))
+                if (koma == z.Substring(i, 1)) // Validación condicional para comparar si la variable "koma" es igual a lo que está almacenado en la subcadena que tiene la variable "z" .
                 {
-                    posiKoma = i;
-                    i = y;
+                    posiKoma = i;  // Asignación del valor del indice "i" a la variable "posiKoma" que inició en un principio en 0.
+                    i = y; // Asignación del valor que tiene la variable "y" a la variable "i".
                 }
             }
 
-            if (posiKoma == 1)
+            if (posiKoma == 1) // Validación condicional para comparar si la variable "posikoma" (Posición de la coma) es igual a 1
             {
-                if (analizoSiEsNumero(z.Substring(0, 1)))
+                if (analizoSiEsNumero(z.Substring(0, 1))) // Validación condicional que llama al método tipo función "analizoSiEsNumero" (Marca 5) enviando el parámetro de la variable "z" con lo almacenado en el subvector de carácteres en posición 0,1
                 {
-                    zoom = true;
-                    digitoUno = int.Parse(z.Substring(0, 1));
+                    zoom = true; // Asignación de valor verdadero a la variable zoom.
+                    digitoUno = int.Parse(z.Substring(0, 1)); // Conversión a valor numérico de lo asignado en subvector de cadena almacenado en "z" posición 0,1  y posteriormente pasado a la variable numérica entera "digitoUno" .
                 }
-                else
+                else // En caso de no cumplirse la condición anterior (Es decir si no es un número).
                 {
-                    Console.WriteLine("El símbolo '" + z.Substring(0, 1) + "' en la posición 1 no es un número");
+                    Console.WriteLine("El símbolo '" + z.Substring(0, 1) + "' en la posición 1 no es un número"); // Impresión de mensaje en consola indicando que lo almacenado en el subvector "z" posición 0,1 no es número.
                 }
             }
 
