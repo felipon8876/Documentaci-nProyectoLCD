@@ -1,5 +1,8 @@
 
-/*Documentación TEST*/
+/*Documentación Program.cs*/
+/// <summary>
+/// Funcionamiento de  una pantalla LCD.
+/// </summary>
 
 using System;
 using System.Collections.Generic;
@@ -11,20 +14,24 @@ namespace PantallaLCD
 {
     class Program
     {
-        static string[] vector = new String[1000]; // vector que almacena los numeros ingresados correctamente.
-        static void Main(string[] args)
+        static string[] vector = new String[1000]; // Creación del objeto vector de tipo cadena con tamaño de 1000 posiciones.
+        
+        static void Main(string[] args) // Función principal donde se centraliza el llamado de procedimientos y funciones.
         {
-            Console.WriteLine("Bienvenido al programa de impresión estilo pantalla LCD.\n");
+            Console.WriteLine("Bienvenido al programa de impresión estilo pantalla LCD.\n");  // Impresión de mensaje en consola que brinda la Bienvenida.
             Console.WriteLine("Favor Ingrese el primer número seguido de una ',' el cual hace referencia al tamaño, después ingrese " +
-                "el resto de " + "números que desea ver impresos, finalice ingresando '0,0' para ver la impresión de los números.\n");
+                "el resto de " + "números que desea ver impresos, finalice ingresando '0,0' para ver la impresión de los números.\n"); // Impresión de mensaje en consola  que solicita la inserción de datos que se insertarán en el vector.
 
-            LLenar();
+            LLenar(); // Llamado del método tipo procedimiento con Marca 1, que realizará el llenado del vector.
 
-            Mostrar();
-
-            Console.ReadKey();
+            Mostrar(); // Llamado del  método tipo  procedimiento con Marca 2, que imprimirá el vector lleno.
+            
+            Console.ReadKey(); // Instrucción que captura la presión de una tecla por parte del usuario para que el programa pueda continuar.
 
         }
+        
+        
+      
 
         static bool analizoSiEsNumero(string q) // metodo que al ingresar un caracter verifica si es numero o no.
         {
@@ -47,15 +54,18 @@ namespace PantallaLCD
 
             return num;
         }
-        static bool analizoCantidad(string z) // metodo que analiza si el numero ingresado es correcto o no
+        
+        /*Marca 3  Método tipo función donde llega el parámetro de tipo cadena definido como "z" y donde retornará un valor Booleano (V-F) */
+        
+        static bool analizoCantidad(string z) 
         {
-            int y = z.Length;
+            int y = z.Length;   //Definición de variable numérica entera llamada "y" e inicializada con el tamaño de caracteres que trajo la variable cadena "z".
 
-            int i;
-            string koma = ",";
-            int posiKoma = 0;
-            int digitoUno;
-            bool zoom = false;
+            int i;  //  Definición de variable numérica entera llamada "i" que funciona como un indice de posición.
+            string koma = ","; // Definición de variable  tipo cadena llamada "koma" asignada con valor caracter ","
+.            int posiKoma = 0; // Definición de variable numérica entera llamada "posiKoma" inicializada en 0 y funciona como la marca de la posición donde estará presente el caracter ",".
+            int digitoUno;  // Definición de variable numérica entera llamada "digitoUno" .
+            bool zoom = false; // Definición de variable booleana  llamada "zoom" inicializada con valor en falso.
 
             for (i = 0; i < y; i++)              //hallo la posición de la coma
             {
@@ -132,32 +142,39 @@ namespace PantallaLCD
             return zoom;
         }
 
-        static void LLenar() // metodo que ingresa en las posiciones del vector los numeros correctos
+        /* Marca 1: Método tipo procedimiento que realizará el llenado del vector. */ 
+        
+        static void LLenar() 
         {
-            int cont = 0;
-            string fila = "A";              //Se le asigna cualquier valor
+            int cont = 0;  // Definición de variable numérica Entera llamada contador e inicializada en 0.
+            string fila = "A"; // Definición de variable cadena llamada fila e inicializada en A.    
 
-            while (fila != "0,0") // mientras sea diferente de 0,0 permita guardar en las posiciones del vector los numeros ingresados
-            {
-                fila = Console.ReadLine();
-                if (analizoCantidad(fila))
+            while (fila != "0,0") // Ciclo mientras que validará que la variable fila sea diferente de 0,0 para asi permitir guardar valores en  cada una de las posiciones del vector */
+               {
+                fila = Console.ReadLine(); // Captura del valor ingresado por teclado y asignado a la variable fila.
+                if (analizoCantidad(fila)) // Validación condicional que llama al método tipo función "analizoCantidad" (Marca 3) donde se envía el parámetro fila para analizar la cantidad de caracteres del valor ingresado .
                 {
-                    vector[cont] = fila;
-                    cont = cont + 1;
+                    vector[cont] = fila; // Asignación del valor que esté almacenado en la variable fila hacia el vector creado en la posición que esté en el momento el contador: "cont".
+                    cont = cont + 1; // Aumento de 1 en 1 de la variable contador: "cont".
                 }
             }
         }
 
+        /* Marca 2: Método tipo procedimiento que realizará la impresión del vector. */ 
+        
         static void Mostrar()
         {
-            int i = 0;
-            while (vector[i] != null)
+            int i = 0; // Definición de variable numérica Entera llamada i e inicializada en 0, utilizada como indice.
+            while (vector[i] != null)  // Ciclo mientras que irá recorriendo el vector, validando que la posición del mismo en la que esté el indice tenga valores almacenados y asi poder ser mostrados.
             {
-                ImprimirEnLCD(vector[i]);
-                i = i + 1;
+                ImprimirEnLCD(vector[i]); // Llamado al método tipo función "ImprimirEnLCD"  (Marca 4) donde se envía el parámetro vector con la posición en la que esté el indice. 
+                i = i + 1; // Aumento de 1 en 1 de la variable indice: "i" que marca la posición.
             }
         }
 
+        
+        
+        
         static void ImprimirEnLCD(string r)
         {
             int digito;
